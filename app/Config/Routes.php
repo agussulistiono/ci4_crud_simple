@@ -18,20 +18,26 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * --------------------------------------------------------------------
  */
  $routes->setDefaultNamespace('App\Controllers');
- $routes->setDefaultController('UserCrud');
+ $routes->setDefaultController('Home');
  $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
 
 //Crud RESTful Routes
-
+//user route
 $routes->get('users-list','UserCrud::index');
 $routes->get('user-form','UserCrud::create');
 $routes->post('submit-form','UserCrud::store');
 $routes->get('edit-view/(:num)','UserCrud::singgleUser/$1');
 $routes->post('update','UserCrud::update');
 $routes->get('delete/(:num)','UserCrud::delete/$1');
+
+//Produk route
+$routes->get('produk-list','Produk::index');
+$routes->get('produk-form','Produk::addForm');
+$routes->get('submit-form','Produk::store');
+$routes->get('edit-produk/(:num)','Produk::singgleProduk/$1');
 
 
 
@@ -43,7 +49,7 @@ $routes->get('delete/(:num)','UserCrud::delete/$1');
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'UserCrud::index');
+$routes->get('/', 'Home::index');
 
 /*
  * --------------------------------------------------------------------

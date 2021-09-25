@@ -8,12 +8,17 @@ class UserCrud extends Controller{
     public function index(){
         $userModel =new UserModel();
         $data['users']=$userModel->orderBy('id','Desc')->findAll();
-        return view('user_view', $data);
+        
+        echo view('template/header', $data);
+        echo view('users/user_view', $data);
+        echo view('template/footer', $data);
     }
 
     //form Menambah user
     public function create(){
-        return view('add_user');
+        echo view('template/header');
+        echo view('users/add_user');
+        echo view('template/footer');
     }
     //insert user
     public function store(){
@@ -30,7 +35,10 @@ class UserCrud extends Controller{
     public function singgleUser($id=null){
         $userModel = new UserModel();
         $data['user_obj'] = $userModel->where('id', $id)->first();
-        return view('edit_user', $data);
+        
+        echo view('template/header', $data);
+        echo view('users/edit_user', $data);
+        echo view('template/footer', $data);
     }
 
     //update user data
