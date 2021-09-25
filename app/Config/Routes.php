@@ -28,7 +28,7 @@ $routes->setAutoRoute(true);
 
 $routes->get('users-list','UserCrud::index');
 $routes->get('user-form','UserCrud::create');
-$routes->post('submit-form','UserCrud::insert');
+$routes->post('submit-form','UserCrud::store');
 $routes->get('edit-view/(:num)','UserCrud::singgleUser/$1');
 $routes->post('update','UserCrud::update');
 $routes->get('delete/(:num)','UserCrud::delete/$1');

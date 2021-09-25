@@ -16,14 +16,14 @@ class UserCrud extends Controller{
         return view('add_user');
     }
     //insert user
-    public function insert(){
-        $userModel=new UserModel();
+    public function store(){
+        $userModel= new UserModel();
         $data=[
             'name'=>$this->request->getvar('name'),
             'email'=>$this->request->getvar('email')
         ];
         $userModel->insert($data);
-        return $this->response(redirect(site_url('/users-list')));
+        return $this->response->redirect(site_url('/users-list'));
     }
 
     //menampilkan user tunggal

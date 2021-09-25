@@ -24,7 +24,7 @@
         <form action="<?= site_url('/submit-form')?>" method="post" id="add_create" name="add_create">
             <div class="form-group">
                 <label for="name">Nama</label>
-                <input type="text" name="nama"  class="form-control">
+                <input type="text" name="name"  class="form-control">
             </div>
             <div class="form-group">
                 <label for="email">email</label>
