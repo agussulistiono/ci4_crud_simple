@@ -1,23 +1,20 @@
-<div class="edit-form">
-    <form method="post" id="update_user" name="update_user" 
-    action="<?= site_url('/update') ?>">
-      <input type="hidden" name="id" id="id" value="<?php echo $user_obj['id']; ?>">
 
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" name="name" class="form-control" value="<?php echo $user_obj['name']; ?>">
-      </div>
 
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" class="form-control" value="<?php echo $user_obj['email']; ?>">
-      </div>
+    <div class="edit-form">
+        <form action="<?= site_url('/update-produk')?>" method="post" id="update" name="update_produk">
+            <input type="text" name="id" id="id" value="<?php echo $produk_obj['id']; ?>">
+            <div class="form-group">
+                <label for="name">Product</label>
+                <input type="text" name="name" value="<?php echo $produk_obj['name']?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="sell">sell</label>
+                <input type="number" name="sell"  value="<?php echo  $produk_obj['sell']?>" class="form-control">
+            </div>
 
-      <div class="form-group">
-        <button type="submit" class="btn btn-warning btn-block">Save Data</button>
-      </div>
-    </form>
-    </div
-  
-    
- 
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Save</button>
+            </div>
+        </form>
+    </div>
+   

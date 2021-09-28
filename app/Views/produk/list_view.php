@@ -1,7 +1,7 @@
           
     <div class="container mt-4" >
         <div class="dflex justify-content-end">
-            <a href="<?= site_url('/produk-form')?>" class="btn btn-success mb2">Add User</a>
+            <a href="<?= site_url('/produk-form')?>" class="btn btn-success mb2">Add Product</a>
         </div>
         <?php
             if(isset($_SESSION['msg'])){
@@ -26,8 +26,8 @@
                             <td><?php echo $p['name']?></td>
                             <td><?php echo $p['sell']?></td>
                             <td><?php echo $p['created_at']?></td>
-                            <td><a href="<?php echo base_url('edit-view/'.$p['id'])?>" class="btn btn-primary btn-sm">Edit</a>
-                             <a href="<?php echo base_url('delete/'.$p['id'])?>" class="btn btn-warning btn-sm">Delete</a>
+                            <td><a href="<?php echo base_url('edit-view-produk/'.$p['id'])?>" class="btn btn-primary btn-sm">Edit</a>
+                             <a href="<?php echo base_url('delete-produk/'.$p['id'])?>" class="btn btn-warning btn-sm">Delete</a>
                             </td>
                         </tr>
                         <?php endforeach;?>

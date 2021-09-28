@@ -28,43 +28,44 @@ class Produk extends Controller{
         $produkModel= new ProdukModel();
         $created_at = date('d-m-Y');
         $data=[
-            'product'=>$this->request->getVar('name_product'),
+            'name'=>$this->request->getVar('name'),
             'sell'=>$this->request->getVar('sell'),
-            'creted_at'=>$this->created_at    
+            'created_at'=>$created_at    
         ];
         $produkModel->insert($data);
-        return $this->response->redirect(site_url('/product-list'));
+        return $this->response->redirect(site_url('/produk-list'));
 
     }
 
     //menampilkan data ke edit product
-    public function singgleProduct($id=null){
+    public function singgleProduk($id=null){
         $produkModel = new ProdukModel();
-        $data['produk_obj'] = $produkModel->where($id,'id')->first();
-        echo view('template/header');
-        echo view('produk/edit_produk');
-        echo view('template/footer');
+        $data['produk_obj'] = $produkModel->where('id', $id)->first();
+        
+        echo view('template/header', $data);
+        echo view('produk/edit_produk', $data);
+        echo view('template/footer', $data);
     }
 
     //membuat aksi update dari tombol save edit
     public function update(){
-        $produkModel =new ProductModel();
+        $produkModel =new ProdukModel();
         $id= $this->request->getVar('id');
         $created_at = date('d-m-Y');
         $data=[
-            'product'=>$this->request->getVar('name_product'),
+            'name'=>$this->request->getVar('name'),
             'sell'=>$this->request->getVar('sell'),
-            'creted_at'=> $created_at    
+            'created_at'=> $created_at    
         ];
         $produkModel->update($id, $data);
-        return $this->response->redirect(site_url('/product-list'));
+        return $this->response->redirect(site_url('/produk-list'));
     }
 
     //membuat aksi delete datad
     public function delete($id=null){
-        $productModel=new ProdukModel();
-        $data['produk'] = $produkModel->where('$id', $id)->delete($id);
-        return $this->response->redirect(site_url('/product-list'));
+        $produkModel=new ProdukModel();
+        $data['produk'] = $produkModel->where('id', $id)->delete($id);
+        return $this->response->redirect(site_url('/produk-list'));
     }
 }
 ?>

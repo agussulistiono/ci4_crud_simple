@@ -36,8 +36,10 @@ $routes->get('delete/(:num)','UserCrud::delete/$1');
 //Produk route
 $routes->get('produk-list','Produk::index');
 $routes->get('produk-form','Produk::addForm');
-$routes->get('submit-form','Produk::store');
-$routes->get('edit-produk/(:num)','Produk::singgleProduk/$1');
+$routes->post('submit-form-produk','Produk::store');
+$routes->get('edit-view-produk/(:num)','Produk::singgleProduk/$1');
+$routes->post('update-produk','Produk::update');
+$routes->get('delete-produk/(:num)','Produk::delete/$1');
 
 
 
