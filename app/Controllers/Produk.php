@@ -67,5 +67,19 @@ class Produk extends Controller{
         $data['produk'] = $produkModel->where('id', $id)->delete($id);
         return $this->response->redirect(site_url('/produk-list'));
     }
+
+    public function grafikmorris(){
+        $db = \Config\Database::connect();
+        $builder = $db->table('product');
+
+        $query = $builder->select("COUNT(id) as count, sell as s, DAYNAME(created_at) as day");
+        $query = $builder->where("DAY(created_at) GROUP BY DAYNAME(created_at), s");
+        $query = $builder->orderBy("s ASC, day ASC")->get();
+        $data['products'] = $query->getResult();
+
+        echo view('template/header', $data);
+        echo view('produk/grafik', $data);
+        echo view('template/footer', $data);
+    }
 }
 ?>

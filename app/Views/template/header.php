@@ -42,6 +42,9 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('Produk')?>">Produk</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('grafik-morris')?>">Grafik Produk</a>
+      </li>
       
     
   </div>

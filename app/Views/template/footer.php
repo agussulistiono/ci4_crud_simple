@@ -5,10 +5,36 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
-
-
-
+    <!--Untuk Grafik-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <script>
+
+  //membuat grafk
+    var serries = <?php echo json_encode($products); ?>;
+        var data = serries,
+          config = {
+            data: <?php echo json_encode($products); ?>,
+            xkey: 'day',
+            ykeys: ['s'],
+            labels: ['Sales this week'],
+            fillOpacity: 0.7,
+            hideHover: 'auto',
+            resize: true,
+            behaveLikeLine: true,
+            stacked: true,
+            barColors: "455"
+            };
+        
+        // Call bar chart
+        config.element = 'MorrisBarChart';
+        Morris.Bar(config);
+			
+			// Call stacked chart
+			config.element = 'MorrisStakcedChart';
+			config.stacked = true;
+			Morris.Bar(config);
     $(document).ready(function(){
         $('#user-list').DataTable();
         $('#produk-list').DataTable();
